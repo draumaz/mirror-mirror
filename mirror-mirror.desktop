@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Mirror Mirror
+Comment=Mirror and control your Android device via scrcpy
+Exec=mirror-mirror
+Icon=scrcpy
+Terminal=false
+Categories=Utility;RemoteAccess;
+Keywords=phone;mirror;android;scrcpy;
+PrefersNonDefaultGPU=true
+X-KDE-RunOnDiscreteGpu=true
+StartupWMClass=scrcpy
+  
