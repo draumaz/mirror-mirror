@@ -28,7 +28,7 @@ esac
 
 case "${APP_PKG}" in 
   "") scrcpy --turn-screen-off --window-height=750 ;;
-  *) scrcpy --new-display --start-app=*"${2}" -x --window-title "${2}" ;;
+  *) scrcpy --new-display --start-app="+${2}" -x --window-title "${2}" ;;
 esac
 
 case "${LOCK_STATE}" in 1) adb shell input keyevent "${EVENT_POWER}" ;; esac
