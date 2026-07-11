@@ -29,7 +29,9 @@ case $(adb shell dumpsys window | grep mDream | tr ' ' '\n' | grep mDreamingLock
 esac
 
 case "${APP_PKG}" in "") ;; *) adb shell monkey -p "${APP_PKG}" 1 ;; esac
-scrcpy --window-height=750
+scrcpy \
+  --turn-screen-off \
+  --window-height=750
 
 case "${LOCK_STATE}" in 1)
   adb shell input keyevent "${EVENT_POWER}"
