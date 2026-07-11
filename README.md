@@ -15,4 +15,4 @@ case "${PATH}" in *.local/bin*) echo ":D" ;; *) echo "D:" ;; esac
 ```
 
 ## skip PIN entry
-- ```sed -i 's/mirror-mirror/mirror-mirror YOUR_PIN_HERE/g' ${HOME}/.local/share/applications/mirror-mirror.desktop```
+```sed -i 's/mirror-mirror/mirror-mirror YOUR_PIN_HERE/g' ${HOME}/.local/share/applications/mirror-mirror.desktop```
