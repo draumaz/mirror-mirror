@@ -4,7 +4,7 @@ LOCK_STATE=0
 
 PIN="${1}"
 APP_PKG="${2}"
-case "${3}" in "") APP_NAME="${APP_PKG}" ;; *) APP_NAME="${3}" ;; esac
+APP_NAME="${3}"
 
 EVENT_POWER="26"
 EVENT_ENTER="66"
@@ -28,9 +28,13 @@ case $(adb shell dumpsys window | grep mDream | tr ' ' '\n' | grep mDreamingLock
 esac
 
 case "${APP_PKG}" in 
-  "") scrcpy --turn-screen-off --window-width=890 --window-height=700 ;;
-  *) scrcpy --new-display=890x700 --start-app="+${APP_PKG}" -x --window-title "${APP_NAME}" ;;
+  "")
+    scrcpy --turn-screen-off --window-width=890 --window-height=700
+  ;;
+  *)
+    case "${APP_NAME}" in "") APP_NAME="${APP_PKG}" ;; esac
+    scrcpy --new-display=890x700 --start-app="+${APP_PKG}" -x --window-title "${APP_NAME}"
+  ;;
 esac
 
 case "${LOCK_STATE}" in 1) adb shell input keyevent "${EVENT_POWER}" ;; esac
-
