@@ -9,7 +9,7 @@ EVENT_POWER="26"
 EVENT_ENTER="66"
 
 case "${PIN}" in "")
-  PIN=$(zenity --entry --title="Your device is locked; please enter your PIN." --text="You can hardcode your PIN as \$1 following the binary in the .application file; find the Exec line.") ;;
+  PIN=$(zenity --entry --title="Your device is locked; please enter your PIN." --text="You can hardcode your PIN as \$1 following the binary in the .application file; find the Exec line.") || exit 1 ;;
 esac
 
 case $(adb shell dumpsys window | grep mDream | tr ' ' '\n' | grep mDreamingLockscreen | tr '=' '\n' | tail -1) in
